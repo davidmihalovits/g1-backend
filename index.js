@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 db.authenticate().then(() => console.log("Postgres database connected."));
 db.sync();
 
-app.get("/", () => res.json("hello"));
+app.get("/", (req, res) => res.json("hello"));
 
 const PORT = process.env.PORT || 5000;
 
