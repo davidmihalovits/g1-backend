@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 db.authenticate().then(() => console.log("Postgres database connected."));
 db.sync();
 
+app.get("/", () => res.json("hello"));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}.`));
