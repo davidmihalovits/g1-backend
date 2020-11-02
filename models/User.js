@@ -54,4 +54,5 @@ const User = db.define("user", {
     },
 });
 
+db.sync();
 module.exports = User;
