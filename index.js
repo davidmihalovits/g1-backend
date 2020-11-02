@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require("./config/db");
+db.sync();
 const { auth } = require("./middlewares/auth");
 const { signup } = require("./routes/signup");
 const { login } = require("./routes/login");
