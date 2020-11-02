@@ -14,5 +14,4 @@ const Account = db.define("account", {
     },
 });
 
-db.sync();
 module.exports = Account;
