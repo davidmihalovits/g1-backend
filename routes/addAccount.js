@@ -10,6 +10,6 @@ exports.addAccount = async (req, res) => {
         return res.json(account);
     } catch (error) {
         console.log(error);
-        return res.json({ status: "Could not add job." });
+        return res.json({ status: "Could not add account." });
     }
 };

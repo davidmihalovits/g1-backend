@@ -11,6 +11,6 @@ exports.getAccounts = async (req, res) => {
         return res.json(accounts);
     } catch (error) {
         console.log(error);
-        return res.json({ status: "Could not get profile." });
+        return res.json({ status: "Could not get accounts." });
     }
 };
