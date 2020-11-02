@@ -12,14 +12,6 @@ const Account = db.define("account", {
         type: DataTypes.NUMBER,
         defaultValue: 0,
     },
-    createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-    },
-    updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-    },
 });
 
 module.exports = Account;
