@@ -49,7 +49,7 @@ const User = db.define("user", {
         type: DataTypes.STRING,
     },
     balance: {
-        type: DataTypes.STRING,
+        type: DataTypes.DECIMAL(10, 3),
         defaultValue: 0,
     },
 });

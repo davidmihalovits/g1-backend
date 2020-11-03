@@ -8,6 +8,8 @@ const { login } = require("./routes/login");
 const { profile } = require("./routes/profile");
 const { addAccount } = require("./routes/addAccount");
 const { getAccounts } = require("./routes/getAccounts");
+const { deposit } = require("./routes/deposit");
+const { buy } = require("./routes/buy");
 
 const app = express();
 app.use(cors());
@@ -15,13 +17,15 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 db.authenticate().then(() => console.log("Postgres database connected."));
-db.sync({ force: true });
+db.sync({ alter: true });
 
 app.post("/signup", signup);
 app.post("/login", login);
 app.get("/profile", auth, profile);
 app.post("/addAccount", auth, addAccount);
 app.get("/getAccounts", auth, getAccounts);
+app.put("/deposit", auth, deposit);
+app.put("/buy", auth, buy);
 
 const PORT = process.env.PORT || 5000;
 
