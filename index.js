@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const db = require("./config/db");
-db.sync();
 const { auth } = require("./middlewares/auth");
 const { signup } = require("./routes/signup");
 const { login } = require("./routes/login");
@@ -16,7 +15,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 db.authenticate().then(() => console.log("Postgres database connected."));
-db.sync();
+db.sync({ force: true });
 
 app.post("/signup", signup);
 app.post("/login", login);
