@@ -10,6 +10,7 @@ const { addAccount } = require("./routes/addAccount");
 const { getAccounts } = require("./routes/getAccounts");
 const { deposit } = require("./routes/deposit");
 const { buy } = require("./routes/buy");
+const { send } = require("./routes/send");
 
 const app = express();
 app.use(cors());
@@ -26,6 +27,7 @@ app.post("/addAccount", auth, addAccount);
 app.get("/getAccounts", auth, getAccounts);
 app.put("/deposit", auth, deposit);
 app.put("/buy", auth, buy);
+app.put("/send", auth, send);
 
 const PORT = process.env.PORT || 5000;
 
