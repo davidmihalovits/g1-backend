@@ -5,6 +5,7 @@ const db = require("./config/db");
 const { auth } = require("./middlewares/auth");
 const { signup } = require("./routes/signup");
 const { login } = require("./routes/login");
+const { verify } = require("./routes/verify");
 const { profile } = require("./routes/profile");
 const { addAccount } = require("./routes/addAccount");
 const { getAccounts } = require("./routes/getAccounts");
@@ -22,6 +23,7 @@ db.sync({ alter: true });
 
 app.post("/signup", signup);
 app.post("/login", login);
+app.put("/verify", auth, verify);
 app.get("/profile", auth, profile);
 app.post("/addAccount", auth, addAccount);
 app.get("/getAccounts", auth, getAccounts);

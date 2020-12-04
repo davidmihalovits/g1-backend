@@ -6,6 +6,7 @@ exports.getAccounts = async (req, res) => {
             where: {
                 email: req.user.email,
             },
+            order: [["createdAt", "ASC"]],
         });
 
         return res.json(accounts);

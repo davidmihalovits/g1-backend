@@ -11,7 +11,14 @@ exports.deposit = async (req, res) => {
 
         await account.increment({ balance: req.body.deposit });
 
-        return res.json({ status: "Deposit successful." });
+        const accounts = await Account.findAll({
+            where: {
+                email: req.user.email,
+            },
+            order: [["createdAt", "ASC"]],
+        });
+
+        return res.json(accounts);
     } catch (error) {
         console.log(error);
         return res.json({ status: "Could not deposit." });

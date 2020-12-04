@@ -48,6 +48,9 @@ const User = db.define("user", {
     identification: {
         type: DataTypes.STRING,
     },
+    employer: {
+        type: DataTypes.STRING,
+    },
     balance: {
         type: DataTypes.DECIMAL(10, 3),
         defaultValue: 0,

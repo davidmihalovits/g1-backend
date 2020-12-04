@@ -9,7 +9,7 @@ const Account = db.define("account", {
         type: DataTypes.STRING,
     },
     balance: {
-        type: DataTypes.DECIMAL(10, 3),
+        type: DataTypes.FLOAT(3),
         defaultValue: 0,
     },
 });
