@@ -2,7 +2,7 @@ const Account = require("../models/Account");
 const User = require("../models/User");
 const Transaction = require("../models/Transaction");
 
-exports.buy = async (req, res) => {
+exports.sell = async (req, res) => {
     try {
         const user = await User.findOne({
             where: {
@@ -17,9 +17,9 @@ exports.buy = async (req, res) => {
             },
         });
 
-        await account.decrement({ balance: req.body.amount });
+        await account.increment({ balance: req.body.amount });
 
-        await user.increment({ balance: req.body.goldAmount });
+        await user.decrement({ balance: req.body.goldAmount });
 
         await Transaction.create({
             email: req.user.email,
@@ -34,6 +34,6 @@ exports.buy = async (req, res) => {
         return res.json(user);
     } catch (error) {
         console.log(error);
-        return res.json({ status: "Could not buy." });
+        return res.json({ status: "Could not sell." });
     }
 };

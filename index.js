@@ -11,7 +11,11 @@ const { addAccount } = require("./routes/addAccount");
 const { getAccounts } = require("./routes/getAccounts");
 const { deposit } = require("./routes/deposit");
 const { buy } = require("./routes/buy");
+const { sell } = require("./routes/sell");
 const { send } = require("./routes/send");
+const { updateProfile } = require("./routes/updateProfile");
+const { changePassword } = require("./routes/changePassword");
+const { getHistory } = require("./routes/getHistory");
 
 const app = express();
 app.use(cors());
@@ -29,7 +33,11 @@ app.post("/addAccount", auth, addAccount);
 app.get("/getAccounts", auth, getAccounts);
 app.put("/deposit", auth, deposit);
 app.put("/buy", auth, buy);
+app.put("/sell", auth, sell);
 app.put("/send", auth, send);
+app.put("/updateProfile", auth, updateProfile);
+app.put("/changePassword", auth, changePassword);
+app.get("/getHistory", auth, getHistory);
 
 const PORT = process.env.PORT || 5000;
 

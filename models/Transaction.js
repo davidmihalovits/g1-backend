@@ -9,10 +9,22 @@ const Transaction = db.define("transaction", {
         type: DataTypes.STRING,
     },
     amount: {
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT(3),
+        defaultValue: 0,
+    },
+    goldAmount: {
+        type: DataTypes.FLOAT(3),
+        defaultValue: 0,
+    },
+    fee: {
+        type: DataTypes.FLOAT(3),
+        defaultValue: 0,
     },
     wallet: {
         type: DataTypes.STRING,
+    },
+    completed: {
+        type: DataTypes.BOOLEAN,
     },
 });
 

@@ -52,7 +52,7 @@ const User = db.define("user", {
         type: DataTypes.STRING,
     },
     balance: {
-        type: DataTypes.DECIMAL(10, 3),
+        type: DataTypes.FLOAT(3),
         defaultValue: 0,
     },
 });

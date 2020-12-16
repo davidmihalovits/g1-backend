@@ -25,7 +25,7 @@ exports.send = async (req, res) => {
         await sender.decrement({ balance: req.body.amount });
         await recipient.increment({ balance: req.body.amount });
 
-        return res.json(sender);
+        return res.json({ sender });
     } catch (error) {
         console.log(error);
         return res.json({ status: "Could not send." });
