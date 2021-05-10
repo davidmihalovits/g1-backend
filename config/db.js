@@ -13,5 +13,6 @@ module.exports = new Sequelize(
                 rejectUnauthorized: false,
             },
         },
+        logging: false,
     }
 );
